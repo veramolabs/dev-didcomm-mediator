@@ -191,6 +191,8 @@ didResolver:
               $ref: /web-did-resolver
             key:
               $ref: /did-key-resolver
+            ens:
+              $ref: /universal-resolver
             elem:
               $ref: /universal-resolver
             io:
