@@ -176,6 +176,7 @@ messageHandler:
     - messageHandlers:
         - $require: "@veramo/did-comm#DIDCommMessageHandler"
         - $require: "@veramo/did-comm#CoordinateMediationMediatorMessageHandler"
+        - $require: "@veramo/did-comm#PickupMediatorMessageHandler"
 
 # DID resolvers
 didResolver:
