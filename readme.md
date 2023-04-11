@@ -42,7 +42,7 @@ The database connection string for Postgres
 
 You will need to fork this repo, then click the button below and follow the Heroku deploy process:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy/?template=https://github.com/veramolabs/dev-didcomm-mediator)
 
 Be sure to set the `BASE_URL` correctly, with your App name replacing `APP_NAME` in the URL.
 
