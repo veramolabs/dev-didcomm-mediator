@@ -112,7 +112,7 @@ server:
     - - /messaging
       - $require: "@veramo/remote-server?t=function#MessagingRouter"
         $args:
-          - save: true
+          - save: false
             metaData:
               type: DIDComm
               value: https
