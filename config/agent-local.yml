@@ -151,6 +151,41 @@ server:
             $ref: /constants/baseUrl
           messagingServiceEndpoint: /messaging
 
+mediationManager:
+  $require: '@veramo/mediation-manager#MediationManagerPlugin'
+  $args:
+    - isDefaultMediateGrantAll: true
+    - policyStore: 
+      $require: '@veramo/kv-store#KeyValueStore'
+      $args:
+          - namespace: 'mediation_policy'
+            store:
+              $require: '@veramo/kv-store#KeyValueTypeORMStoreAdapter'
+              $args:
+              - options:
+                dbConnection:
+                  $ref: /dbConnection
+    - mediationStore:
+      $require: '@veramo/kv-store#KeyValueStore'
+      $args:
+          - namespace: 'mediation'
+            store:
+              $require: '@veramo/kv-store#KeyValueTypeORMStoreAdapter'
+              $args:
+              - options:
+                dbConnection:
+                  $ref: /dbConnection
+    - recipientDidStore:
+      $require: '@veramo/kv-store#KeyValueStore'
+      $args:
+          - namespace: 'recipient_did'
+            store:
+              $require: '@veramo/kv-store#KeyValueTypeORMStoreAdapter'
+              $args:
+              - options:
+                dbConnection:
+                  $ref: /dbConnection
+
 # Message handler plugin
 messageHandler:
   $require: "@veramo/message-handler#MessageHandler"
@@ -293,6 +328,7 @@ agent:
         - $ref: /didResolver
         - $ref: /didDiscovery
         - $ref: /messageHandler
+        - $ref: /mediationManager
         - $require: "@veramo/did-comm#DIDComm"
         - $require: '@veramo/credential-w3c#CredentialPlugin'
         - $ref: /credentialIssuerLD
